@@ -40,6 +40,7 @@ public class MainActivity extends YouTubeBaseActivity implements YouTubePlayer.O
 
        /** Initialize App UI */
 
+
         IntiUi();
       /** Load Instream Video Ad*/
         loadInstreamVideo();
@@ -68,20 +69,26 @@ public class MainActivity extends YouTubeBaseActivity implements YouTubePlayer.O
                 playVideo();
 
             }
+
+            @Override
+            public void onAdClose() {
+                playVideo();
+            }
+
+            @Override
+            public void onAdMediaEnd(boolean b, long l) {
+                playVideo();
+            }
+
             @Override public void onAdReady(VmaxAdView adView) {
 
                 showInstream(adView);
             }
-            @Override public void onAdDismissed(VmaxAdView adView) {
 
+            @Override
+            public void onAdSkippable() {
                 playVideo();
             }
-            @Override public void onAdEnd(boolean isVideoCompleted, long reward) {
-
-                playVideo();
-
-            }
-
         });
 
         vmaxAdView.cacheAd();
@@ -165,24 +172,6 @@ public void playVideo()
     /** Handle vmaxAdView object for Activity Lifecycle changes */
 
     @Override
-    protected void onPause() {
-        if (vmaxAdView != null) {
-            /** To Pause Refresh Of The Ad While Activity Isn't in Foreground */
-            vmaxAdView.onPause();
-        }
-
-        super.onPause();
-    }
-    @Override
-    protected void onResume() {
-        if (vmaxAdView != null) {
-            /** To Resume Refresh Of The Ad While Activity Comes Back To Foreground */
-
-            vmaxAdView.onResume();
-        }
-        super.onResume();
-    }
-    @Override
     protected void onDestroy() {
         if (vmaxAdView != null) {
        /** To Destroy vmaxAdView when Activity Is No Longer Available  */
@@ -193,16 +182,6 @@ public void playVideo()
 
 
 
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        if (vmaxAdView != null) {
-
-            /** To Reconfigure vmaxAdview According To Configuration Changes*/
-            vmaxAdView.onConfigurationChanged();
-        }
-
-    }
 
 /** Youtube API callbacks*/
     @Override

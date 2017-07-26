@@ -87,7 +87,7 @@ public class MainActivity extends YouTubeBaseActivity implements YouTubePlayer.O
 
             @Override
             public void onAdSkippable() {
-                playVideo();
+
             }
         });
 

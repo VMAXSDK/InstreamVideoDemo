@@ -1,7 +1,9 @@
 package com.vmax.demo.instreamvideo;
 
+import android.support.annotation.RequiresPermission;
 
-import android.content.res.Configuration;
+
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -180,10 +182,19 @@ public void playVideo()
         super.onDestroy();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        vmaxAdView.pauseInstreamAd();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        vmaxAdView.resumeInstreamAd();
+    }
 
-
-/** Youtube API callbacks*/
+    /** Youtube API callbacks*/
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
         youTubePlayer.cueVideo(youTubeVideoId);

@@ -1,9 +1,5 @@
 package com.vmax.demo.instreamvideo;
 
-import android.support.annotation.RequiresPermission;
-
-
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -46,6 +42,7 @@ public class MainActivity extends YouTubeBaseActivity implements YouTubePlayer.O
         IntiUi();
       /** Load Instream Video Ad*/
         loadInstreamVideo();
+
 
     }
 
@@ -90,6 +87,11 @@ public class MainActivity extends YouTubeBaseActivity implements YouTubePlayer.O
             @Override
             public void onAdSkippable() {
 
+            }
+
+            @Override
+            public void onAdMediaStart() {
+                super.onAdMediaStart();
             }
         });
 

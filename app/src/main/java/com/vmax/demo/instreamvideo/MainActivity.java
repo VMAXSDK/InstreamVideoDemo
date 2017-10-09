@@ -23,9 +23,8 @@ import com.vmax.android.ads.exception.VmaxAdError;
 public class MainActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
 
-    public   VmaxAdView vmaxAdView;
+    public  VmaxAdView vmaxAdView;
     private FrameLayout parent_layout;
-
     RelativeLayout video_1,video_2,video_3,video_4,video_5;
     String youTubeVideoId="rD4Sakm8bs4";
 
@@ -50,6 +49,7 @@ public class MainActivity extends YouTubeBaseActivity implements YouTubePlayer.O
     /** Method for Loading Instream Video */
     public void loadInstreamVideo()
     {
+
         /** Initializing vmaxAdView with an Adspot, Repalce With the adspot Configured by you */
         vmaxAdView = new VmaxAdView(this,"7553f735",VmaxAdView.UX_INSTREAM_VIDEO);
 
@@ -200,6 +200,7 @@ public void playVideo()
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
         youTubePlayer.cueVideo(youTubeVideoId);
+          youTubePlayer.release();
 
     }
 

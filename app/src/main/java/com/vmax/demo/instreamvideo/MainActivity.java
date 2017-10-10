@@ -2,6 +2,7 @@ package com.vmax.demo.instreamvideo;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -41,6 +42,7 @@ public class MainActivity extends YouTubeBaseActivity implements YouTubePlayer.O
         IntiUi();
       /** Load Instream Video Ad*/
         loadInstreamVideo();
+
 
 
     }
@@ -114,7 +116,7 @@ public void playVideo()
         if (vmaxAdView1.getAdState() == VmaxAdView.AdState.STATE_AD_READY)
         {
 
-            vmaxAdView1.setVideoPlayerDetails(parent_layout,false);
+            vmaxAdView1.setVideoPlayerDetails( parent_layout);
             vmaxAdView1.showAd();
 
         }

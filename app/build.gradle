@@ -4,6 +4,7 @@ android {
     compileSdkVersion 24
     buildToolsVersion "25.0.2"
     defaultConfig {
+
         applicationId "com.vmax.demo.instreamvideo"
         minSdkVersion 15
         targetSdkVersion 24
@@ -11,6 +12,7 @@ android {
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {

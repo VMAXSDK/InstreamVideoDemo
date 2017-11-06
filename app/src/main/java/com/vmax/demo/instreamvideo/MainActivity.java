@@ -2,7 +2,6 @@ package com.vmax.demo.instreamvideo;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -107,7 +106,6 @@ public void playVideo()
         /** Always add the VideoView(YoutubePlayerView in this case) dynamically */
         parent_layout.addView(youTubePlayerView);
         youTubePlayerView.initialize("AIzaSyCjMEz68TicvvNa7kaSX_9F7RuJrndbCJI", this);
-
     }
 
 
@@ -115,10 +113,8 @@ public void playVideo()
     {
         if (vmaxAdView1.getAdState() == VmaxAdView.AdState.STATE_AD_READY)
         {
-
-            vmaxAdView1.setVideoPlayerDetails( parent_layout);
+            vmaxAdView1.setVideoPlayerDetails(parent_layout);
             vmaxAdView1.showAd();
-
         }
     }
 

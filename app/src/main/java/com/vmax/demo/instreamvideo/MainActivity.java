@@ -1,6 +1,7 @@
 package com.vmax.demo.instreamvideo;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
@@ -35,9 +36,8 @@ public class MainActivity extends YouTubeBaseActivity implements YouTubePlayer.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
        /** Initialize App UI */
-
-
         IntiUi();
       /** Load Instream Video Ad*/
         loadInstreamVideo();
@@ -52,14 +52,13 @@ public class MainActivity extends YouTubeBaseActivity implements YouTubePlayer.O
     {
 
         /** Initializing vmaxAdView with an Adspot, Repalce With the adspot Configured by you */
-        vmaxAdView = new VmaxAdView(this,"7553f735",VmaxAdView.UX_INSTREAM_VIDEO);
+        vmaxAdView = new VmaxAdView(this,"V933206e4",VmaxAdView.UX_INSTREAM_VIDEO);
 
         /** To Fetch Your AdvId you can check your device's Google settings under ads subMenu Or You can Run this app Once and check
-         * the logs for 'AdRequested with url' under the tag vmax, from the url your Advid
-         * would be one of the parameters in the post request eg. advid=2cf626f0-08ac-4a4d-933c-00ecd0256cf4*/
+         * the logs for 'Device Advertisement Id' under the tag vmax/
 
 /** DON'T INCLUDE vmaxAdView.setTestDevices() WHILE GOING LIVE WITH YOUR PROJECT AS THIS SERVES ONLY TEST ADS;*/
-        vmaxAdView.setTestDevices(VmaxAdView.TEST_via_ADVID,"<REPLACE WITH YOUR ADVID>");
+        vmaxAdView.setTestDevices(VmaxAdView.TEST_via_ADVID,"<YOUR_DEVICE'S_ADVID>");
 
 
         vmaxAdView.setAdListener(new VmaxAdListener() {
@@ -198,12 +197,12 @@ public void playVideo()
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
         youTubePlayer.cueVideo(youTubeVideoId);
-          youTubePlayer.release();
+
 
     }
 
     @Override
     public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-
+Log.e("vmax",youTubeInitializationResult.name()+"::"+youTubeInitializationResult.toString());
     }
 }

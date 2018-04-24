@@ -35,13 +35,10 @@ public class MainActivity extends YouTubeBaseActivity implements YouTubePlayer.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
        /** Initialize App UI */
         IntiUi();
       /** Load Instream Video Ad*/
         loadInstreamVideo();
-
 
 
     }
